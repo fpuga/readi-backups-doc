@@ -1,0 +1,11 @@
+{
+    "private": true,
+    "devDependencies": {
+        "markdownlint-cli2": "0.14.0",
+        "markdownlint-cli2-formatter-pretty": "0.0.7",
+        "prettier": "3.3.3"
+    },
+    "dependencies": {
+        "markdownlint": "0.35.0"
+    }
+}

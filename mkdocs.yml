@@ -1,0 +1,158 @@
+site_name: readi-backups-doc
+site_description: Guía de copias de seguridad de iCarto
+site_url: https://fpuga.github.io/readi-backups-doc
+repo_url: https://github.com/fpuga/readi-backups-doc
+edit_uri: edit/main/docs/
+site_author: iCarto
+copyright: >
+    Copyright &copy; 2025 <a href="https://icarto.es">iCarto</a>. Bajo licencia <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.
+    <br>
+    <a href="#__consent">Cookies</a>
+theme:
+    name: material
+    logo: assets/readi-backups-doc.png
+    language: es
+    custom_dir: overrides
+    # favicon: favicon.ico
+    palette:
+        # scheme: icarto
+        primary: teal
+        accent: teal
+    features:
+        # - navigation.instant
+        # - navigation.tabs
+        # - navigation.tabs.sticky
+        # - navigation.sections
+        # - navigation.expand
+        - navigation.indexes
+        - toc.follow
+        - navigation.top
+        - navigation.footer
+        # - header.autohide
+        - content.code.copy
+        # - content.tabs.link
+        # - search.highlight
+        - search.suggest
+        - content.action.edit
+        - content.action.view
+
+extra_css:
+    - extra/extra.css
+# extra_javascript:
+#     - extra/extra.js
+
+exclude_docs: |
+    drafts/            # A "drafts" directory anywhere.
+    private/          # A "private" directory anywhere.
+
+# strict: true
+
+validation:
+    omitted_files: warn
+    absolute_links: warn
+    unrecognized_links: warn
+
+plugins:
+    - search
+    # - with-pdf # https://github.com/orzih/mkdocs-with-pdf
+    #  - pdf-export # https://github.com/zhaoterryy/mkdocs-pdf-export-plugin
+
+    #   - privacy:
+    #       enabled: !ENV [CI, false]
+    #   - social:
+    #       cards: !ENV [CARDS, false]
+
+extra:
+    generator: false
+    social:
+        - icon: fontawesome/solid/link
+          name: Página web de iCarto
+          link: https://icarto.es
+        - icon: fontawesome/brands/github
+          name: GitHub
+          link: https://github.com/iCarto
+        - icon: fontawesome/brands/x-twitter
+          name: X
+          link: https://x.com/icarto
+        - icon: fontawesome/brands/linkedin
+          name: Linkedin
+          link: https://www.linkedin.com/company/icarto
+    consent:
+        title: Consentimiento de cookies
+        description: >-
+            Utilizamos cookies para reconocer sus visitas recurrentes y preferencias, así como
+            para medir la eficacia de nuestra documentación y si los usuarios encuentran lo
+            que buscan. Con su consentimiento, nos ayuda a mejorar nuestra documentación.
+        cookies:
+            # analytics:
+            #     name: Google Analytics
+            #     checked: true
+            github:
+                name: GitHub
+                checked: true
+        actions: [accept, reject, manage]
+    # analytics:
+    #     provider: google
+    #     property: G-XXXXXXXXXX
+
+markdown_extensions:
+    - toc:
+          permalink: true
+          toc_depth: 6
+    - attr_list
+    # - def_list
+    - abbr
+    - md_in_html
+    - admonition
+    - pymdownx.details
+    - pymdownx.highlight:
+          anchor_linenums: true
+          line_spans: __span
+          pygments_lang_class: true
+    - pymdownx.inlinehilite
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+          alternate_style: true
+    - pymdownx.emoji:
+          emoji_index: !!python/name:material.extensions.emoji.twemoji
+          emoji_generator: !!python/name:material.extensions.emoji.to_svg
+    - pymdownx.snippets:
+
+nav:
+    - Prologo: index.md
+    - Introducción: introduccion.md
+    - Marco Teórico:
+          - marco_teorico/index.md
+          - RTO y RPO: marco_teorico/rto_rpo.md
+          - Completo, Incremental y Diferencial: marco_teorico/completa_incremental_diferencial.md
+          - Lógicas vs Físicas: marco_teorico/logicas_vs_fisicas.md
+          - Pull vs Push: marco_teorico/pull_vs_push.md
+          - Retención: marco_teorico/retencion.md
+          - PITR: marco_teorico/pitr.md
+          - Métricas: marco_teorico/metricas.md
+          - Monitorización y Alertas: marco_teorico/monitorizacion_alertas.md
+          - Verificación: marco_teorico/verificacion.md
+          - Pruebas de Restauración: marco_teorico/pruebas_restauracion.md
+          - Plan de Recuperación: marco_teorico/plan_recuperacion.md
+          - Seguridad: marco_teorico/seguridad.md
+          - Segmentar por fuente: marco_teorico/segmentar_fuente.md
+    - Herramientas:
+          - herramientas/index.md
+          - PostreSQL: herramientas/postgresql.md
+          - Ficheros:
+                - herramientas/ficheros/index.md
+                - Proveedor Cloud: herramientas/ficheros/proveedor_cloud.md
+                - Clonado: herramientas/ficheros/clonado.md
+                - Suites: herramientas/ficheros/suites.md
+                - Estilo cp: herramientas/ficheros/estilo_cp.md
+                - Basadas en rsync: herramientas/ficheros/basadas_en_rsync.md
+                - Deduplicación y Cifrado: herramientas/ficheros/deduplicacion_y_cifrado.md
+          - Automatización y Monitorización: herramientas/automatizacion_monitorizacion.md
+          - Proveedores de Almacenamiento: herramientas/proveedores_almacenamiento.md
+    - Implementación:
+          - implementacion/index.md
+          - Arquitectura: implementacion/arquitectura.md
+          - Implementación: implementacion/implementacion.md
+    - Anexos:
+          - anexos/index.md
+          - Retención GFS vs Logarítmica: anexos/retencion_gfs_logaritmica.md

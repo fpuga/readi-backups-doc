@@ -1,0 +1,38 @@
+# Python
+*.egg
+*.egg-info
+__pycache__
+*.pyc
+build/
+dist/
+/.venv/
+
+
+
+# Javascript
+node_modules/
+
+
+## Unit test / coverage reports
+.coverage
+front/coverage
+
+
+# IDEs and Vagrant
+.idea
+.vscode
+.vagrant
+*~
+ubuntu-*-cloudimg-console.log
+
+# Scripts
+.ipynb_checkpoints
+
+
+# Project
+.env
+/private/
+/site/
+/.cache/
+
+# Custom
